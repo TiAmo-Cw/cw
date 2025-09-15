@@ -1,0 +1,19 @@
+name: Test Self-hosted Runner 
+ 
+on: 
+  push: 
+    branches: [ "main" ] 
+ 
+jobs: 
+  build: 
+    runs-on: self-hosted   # 这里就是用你 Rocky8.7 的 runner 
+    steps: 
+      - name: Checkout code 
+        uses: actions/checkout@v3 
+ 
+      - name: Run on Rocky8.7 
+        run: | 
+          echo "Hello from Rocky8.7 self-hosted runner" 
+          hostname 
+          uname -a 
+          whoami 
